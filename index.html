@@ -8,15 +8,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Alexanderize Plugin</title>
-  <meta name="author" content="@stevehickeydsgn" />
+  <meta name="author" content="http://twitter.com/stevehickeydsgn" />
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="stylesheets/styles.css" />
-  <script src="javascripts/html5shiv.js"></script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
 
 <div class="center">
-
   <h1>Alexanderize Plugin</h1>
   <p>Not enough people named Alex on your site? Add a few of ours.</p>
   <ul class="test-buttons">
@@ -25,8 +24,7 @@
     <li><a href="#" id="alexSylvia">Alex Sylvia</a></li>
     <li><a href="#" id="alecHarrison">Alec Harrison</a></li>
   </ul>
-
-</div><!-- end of div.center -->
+</div>
 
 <footer>
   <div class="center">
@@ -37,16 +35,21 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="javascripts/jquery-1.7.2.min.js"><\/script>')</script>
-<script src="javascripts/jquery.alexanderize.js"></script>
+<!-- splitting files for the sake of simplicity. don't do this at home kids -->
+<script src="javascripts/jquery.alexFedorovize.js"></script>
+<script src="javascripts/jquery.alexStetsonize.js"></script>
+<script src="javascripts/jquery.alexSylviate.js"></script>
+<script src="javascripts/jquery.alecHarrisonize.js"></script>
 
-  <script type="text/javascript">
-  $(window).load(function() {
-      $('a#alexFedorov').alexFedorovize();
-      $('a#alexStetson').alexStetsonize();
-      $('a#alexSylvia').alexSylviate();
-      $('a#alecHarrison').alecHarrisonize();
-    });
-  </script>
+<!-- calling functions in HTML like a boss. don't do this at home kids -->
+<script type="text/javascript">
+$(window).load(function() {
+    $('a#alexFedorov').alexFedorovize();
+    $('a#alexStetson').alexStetsonize();
+    $('a#alexSylvia').alexSylviate();
+    $('a#alecHarrison').alecHarrisonize();
+  });
+</script>
 
 </body>
 </html>
