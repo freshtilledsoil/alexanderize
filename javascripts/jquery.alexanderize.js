@@ -4,92 +4,249 @@
 
 
 (function($) {
-
-  $.fn.alexanderize = function(options) {
-
-    //Yo' defaults
-    var defaults = {  
-      enterOn: 'click', //timer, konami-code, click
-      delayTime: 5000 //time before raptor attacks on timer mode
-    };  
-        
-    //Extend those options
-    var options = $.extend(defaults, options); 
-	
+  $.fn.alexFedorovize = function(options) {
+    var defaults = {
+      enterOn: 'click'
+    };
+    var options = $.extend(defaults, options);
     return this.each(function() {
-			var _this = $(this);
-			var audioSupported = false;
-			//Stupid Browser Checking which should be in jQuery Support
-			if ($.browser.mozilla && $.browser.version.substr(0, 5) >= "1.9.2" || $.browser.webkit) { 
-				audioSupported = true;
-			}
-			
-			//Alex Vars
-			var alexImageMarkup = '<img id="Alex" style="display: none" src="alex.png" />'
-			var alexAudioMarkup = '<audio id="AlexShriek" preload="auto"><source src="alex-sound.mp3" /><source src="alex-sound.ogg" /></audio>';	
-			var locked = false;
-			
-			//Append Alex and Style
-			$('body').append(alexImageMarkup);
- 			if(audioSupported) { $('body').append(alexAudioMarkup); }
-			var alex = $('#Alex').css({
-				"position":"fixed",
-				"bottom": "-700px",
-				"right" : "0",
-				"display" : "block"
-			})
-			
-			// Animating Code
-			function init() {
-				locked = true;
-				if(audioSupported) { 
-					function playSound() {
-						document.getElementById('AlexShriek').play();
-					}
-					playSound();
-				}
-								
-				alex.animate({
-					"bottom" : "0"
-				}, function() { 			
-					$(this).animate({
-						"bottom" : "-130px"
-					}, 100, function() {
-						var offset = (($(this).position().left)+400);
-						$(this).delay(300).animate({
-							"right" : offset
-						}, 2200, function() {
-							alex = $('#Alex').css({
-								"bottom": "-700px",
-								"right" : "0"
-							})
-							locked = false;
-						})
-					});
-				});
-			}
-			
-			
-			//Determine Entrance
-			if(options.enterOn == 'timer') {
-				setTimeout(init, options.delayTime);
-			} else if(options.enterOn == 'click') {
-				_this.bind('click', function(e) {
-					e.preventDefault();
-					if(!locked) {
-						init();
-					}
-				})
-			} else if(options.enterOn == 'konami-code'){
-			    var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
-			    $(window).bind("keydown.alex", function(e){
-			        kkeys.push( e.keyCode );
-			        if ( kkeys.toString().indexOf( konami ) >= 0 ) {
-			        	init();
-			        	$(window).unbind('keydown.alex');
-			        }
-			    }, true);
-			}
-    });//each call
-  }//orbit plugin call
+      var _this = $(this);
+      var audioSupported = false;
+      if ($.browser.mozilla && $.browser.version.substr(0, 5) >= "1.9.2" || $.browser.webkit) {
+        audioSupported = true;
+      }
+      var alexImageMarkup = '<img id="AlexFedorov" style="display: none" src="images/alex-fedorov.png" />'
+      var alexAudioMarkup = '<audio id="AlexFedorovShriek" preload="auto"><source src="images/alex-sound.mp3" /><source src="images/alex-sound.ogg" /></audio>';
+      var locked = false;
+      $('body').append(alexImageMarkup);
+      if(audioSupported) { $('body').append(alexAudioMarkup); }
+      var alex = $('#AlexFedorov').css({
+        "position":"fixed",
+        "bottom": "-700px",
+        "right" : "0",
+        "display" : "block"
+      })
+      function init() {
+        locked = true;
+        if(audioSupported) {
+          function playSound() {
+            document.getElementById('AlexFedorovShriek').play();
+          }
+          playSound();
+        }
+        alex.animate({
+          "bottom" : "0"
+        }, function() {
+          $(this).animate({
+            "bottom" : "-130px"
+          }, 100, function() {
+            var offset = (($(this).position().left)+400);
+            $(this).delay(300).animate({
+              "right" : offset
+            }, 2200, function() {
+              alex = $('#AlexFedorov').css({
+                "bottom": "-700px",
+                "right" : "0"
+              })
+              locked = false;
+            })
+          });
+        });
+      }
+      if(options.enterOn == 'click') {
+        _this.bind('click', function(e) {
+          e.preventDefault();
+          if(!locked) {
+            init();
+          }
+        })
+      }
+    });
+  }
+})(jQuery);
+
+(function($) {
+  $.fn.alexStetsonize = function(options) {
+    var defaults = {
+      enterOn: 'click'
+    };
+    var options = $.extend(defaults, options);
+    return this.each(function() {
+      var _this = $(this);
+      var audioSupported = false;
+      if ($.browser.mozilla && $.browser.version.substr(0, 5) >= "1.9.2" || $.browser.webkit) {
+        audioSupported = true;
+      }
+      var alexImageMarkup = '<img id="AlexStetson" style="display: none" src="images/alex-stetson.png" />'
+      var alexAudioMarkup = '<audio id="AlexStetsonShriek" preload="auto"><source src="images/alex-sound.mp3" /><source src="images/alex-sound.ogg" /></audio>';
+      var locked = false;
+      $('body').append(alexImageMarkup);
+      if(audioSupported) { $('body').append(alexAudioMarkup); }
+      var alex = $('#AlexStetson').css({
+        "position":"fixed",
+        "bottom": "-700px",
+        "right" : "0",
+        "display" : "block"
+      })
+      function init() {
+        locked = true;
+        if(audioSupported) {
+          function playSound() {
+            document.getElementById('AlexStetsonShriek').play();
+          }
+          playSound();
+        }
+        alex.animate({
+          "bottom" : "0"
+        }, function() {
+          $(this).animate({
+            "bottom" : "-130px"
+          }, 100, function() {
+            var offset = (($(this).position().left)+400);
+            $(this).delay(300).animate({
+              "right" : offset
+            }, 2200, function() {
+              alex = $('#AlexStetson').css({
+                "bottom": "-700px",
+                "right" : "0"
+              })
+              locked = false;
+            })
+          });
+        });
+      }
+      if(options.enterOn == 'click') {
+        _this.bind('click', function(e) {
+          e.preventDefault();
+          if(!locked) {
+            init();
+          }
+        })
+      }
+    });
+  }
+})(jQuery);
+
+(function($) {
+  $.fn.alexSylviate = function(options) {
+    var defaults = {
+      enterOn: 'click'
+    };
+    var options = $.extend(defaults, options);
+    return this.each(function() {
+      var _this = $(this);
+      var audioSupported = false;
+      if ($.browser.mozilla && $.browser.version.substr(0, 5) >= "1.9.2" || $.browser.webkit) {
+        audioSupported = true;
+      }
+      var alexImageMarkup = '<img id="AlexSylvia" style="display: none" src="images/alex-sylvia.png" />'
+      var alexAudioMarkup = '<audio id="AlexSylviaShriek" preload="auto"><source src="images/alex-sound.mp3" /><source src="images/alex-sound.ogg" /></audio>';
+      var locked = false;
+      $('body').append(alexImageMarkup);
+      if(audioSupported) { $('body').append(alexAudioMarkup); }
+      var alex = $('#AlexSylvia').css({
+        "position":"fixed",
+        "bottom": "-700px",
+        "right" : "0",
+        "display" : "block"
+      })
+      function init() {
+        locked = true;
+        if(audioSupported) {
+          function playSound() {
+            document.getElementById('AlexSylviaShriek').play();
+          }
+          playSound();
+        }
+        alex.animate({
+          "bottom" : "0"
+        }, function() {
+          $(this).animate({
+            "bottom" : "-130px"
+          }, 100, function() {
+            var offset = (($(this).position().left)+400);
+            $(this).delay(300).animate({
+              "right" : offset
+            }, 2200, function() {
+              alex = $('#AlexSylvia').css({
+                "bottom": "-700px",
+                "right" : "0"
+              })
+              locked = false;
+            })
+          });
+        });
+      }
+      if(options.enterOn == 'click') {
+        _this.bind('click', function(e) {
+          e.preventDefault();
+          if(!locked) {
+            init();
+          }
+        })
+      }
+    });
+  }
+})(jQuery);
+
+(function($) {
+  $.fn.alecHarrisonize = function(options) {
+    var defaults = {
+      enterOn: 'click'
+    };
+    var options = $.extend(defaults, options);
+    return this.each(function() {
+      var _this = $(this);
+      var audioSupported = false;
+      if ($.browser.mozilla && $.browser.version.substr(0, 5) >= "1.9.2" || $.browser.webkit) {
+        audioSupported = true;
+      }
+      var alexImageMarkup = '<img id="AlecHarrison" style="display: none" src="images/alec-harrison.png" />'
+      var alexAudioMarkup = '<audio id="AlecHarrisonShriek" preload="auto"><source src="images/alex-sound.mp3" /><source src="images/alex-sound.ogg" /></audio>';
+      var locked = false;
+      $('body').append(alexImageMarkup);
+      if(audioSupported) { $('body').append(alexAudioMarkup); }
+      var alex = $('#AlecHarrison').css({
+        "position":"fixed",
+        "bottom": "-700px",
+        "right" : "0",
+        "display" : "block"
+      })
+      function init() {
+        locked = true;
+        if(audioSupported) {
+          function playSound() {
+            document.getElementById('AlecHarrisonShriek').play();
+          }
+          playSound();
+        }
+        alex.animate({
+          "bottom" : "0"
+        }, function() {
+          $(this).animate({
+            "bottom" : "-130px"
+          }, 100, function() {
+            var offset = (($(this).position().left)+400);
+            $(this).delay(300).animate({
+              "right" : offset
+            }, 2200, function() {
+              alex = $('#AlecHarrison').css({
+                "bottom": "-700px",
+                "right" : "0"
+              })
+              locked = false;
+            })
+          });
+        });
+      }
+      if(options.enterOn == 'click') {
+        _this.bind('click', function(e) {
+          e.preventDefault();
+          if(!locked) {
+            init();
+          }
+        })
+      }
+    });
+  }
 })(jQuery);

@@ -15,35 +15,38 @@
 </head>
 <body>
 
+<div class="center">
+
+  <h1>Alexanderize Plugin</h1>
+  <p>Not enough people named Alex on your site? Add a few of ours.</p>
+  <ul class="test-buttons">
+    <li><a href="#" id="alexFedorov">Alex Fedorov</a></li>
+    <li><a href="#" id="alexStetson">Alex Stetson</a></li>
+    <li><a href="#" id="alexSylvia">Alex Sylvia</a></li>
+    <li><a href="#" id="alecHarrison">Alec Harrison</a></li>
+  </ul>
+
+</div><!-- end of div.center -->
+
+<footer>
+  <div class="center">
+    <p>Principal Author: <a href="http://stevehickeydesign.com" target="_blank">Steve Hickey</a> | Company: <a href="http://freshtilledsoil.com" target="_blank">Fresh Tilled Soil</a></p>
+    <p>Shamelessly borrowed from the fantastic <a href="http://www.zurb.com/playground/jquery-raptorize" target="_blank">Raptorize plugin</a> written by the fine folks at <a href="http://www.zurb.com/" target="_blank">Zurb</a>.</p>
+  </div>
+</footer>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="javascripts/jquery-1.7.2.min.js"><\/script>')</script>
 <script src="javascripts/jquery.alexanderize.js"></script>
 
-<!-- For the button version -->
   <script type="text/javascript">
-		$(window).load(function() {
-			$('.button').alexanderize();
-		});
-	</script>
-
-<!-- For the Konami Code version -->
-	<script type="text/javascript">
-		$(window).load(function() {
-			$('.button').alexanderize({
-				'enterOn' : 'konami-code'
-			});
-		});
-	</script>
-
-<!-- For the Timer version -->
-	<!-- <script type="text/javascript">
-		$(window).load(function() {
-			$('.button').alexanderize({
-				'enterOn' : 'timer',
-				'delayTime' : 2000
-			});
-		});
-	</script>	-->
+  $(window).load(function() {
+      $('a#alexFedorov').alexFedorovize();
+      $('a#alexStetson').alexStetsonize();
+      $('a#alexSylvia').alexSylviate();
+      $('a#alecHarrison').alecHarrisonize();
+    });
+  </script>
 
 </body>
 </html>
