@@ -18,6 +18,28 @@
 <div class="center">
   <h1>Alexanderize Plugin</h1>
   <p>Not enough people named Alex on your site? Add a few of ours.</p>
+  <h3>How to Use</h3>
+  <ol>
+    <li>Download the <a href="Alexanderize-Code-Kit.zip">Alexanderize Code Kit</a> for all the components you'll need.</li>
+    <li>Add the images and sounds files to your <code>/images</code> directory.</li>
+    <li>Make sure you're including jQuery at the end of the body in your HTML file:<br />
+      <code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;</code></li>
+    <li>Include the individual script files for each Alex you'd like to add to your site:<br />
+<pre>&lt;script src="javascripts/jquery.alexFedorovize.js"&gt;&lt;/script&gt;
+&lt;script src="javascripts/jquery.alexStetsonize.js"&gt;&lt;/script&gt;
+&lt;script src="javascripts/jquery.alexSylviate.js"&gt;&lt;/script&gt;
+&lt;script src="javascripts/jquery.alecHarrisonize.js"&gt;&lt;/script&gt;</pre></li>
+    <li>Finally, attach each function to an anchor tag or button and reference a unique selector in the call. When a user clicks on the element you've attached an Alex to, they'll come roaring in!<br />
+<pre>&lt;script type="text/javascript"&gt;
+  $(window).load(function() {
+    $('a#alexFedorov').alexFedorovize();
+    $('a#alexStetson').alexStetsonize();
+    $('a#alexSylvia').alexSylviate();
+    $('a#alecHarrison').alecHarrisonize();
+  });
+&lt;/script&gt;</pre></li>
+  </ol>
+  <h3>Demo</h3>
   <ul class="test-buttons">
     <li><a href="#" id="alexFedorov">Alex Fedorov</a></li>
     <li><a href="#" id="alexStetson">Alex Stetson</a></li>
