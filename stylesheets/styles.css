@@ -382,6 +382,22 @@ footer a:hover {
 /* ==========================================================================
 Helper Classes
 ========================================================================== */
+div#grid {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 999;
+}
+
+div#grid::before { /* use http://gridulator.com/ to find your grid sizes */
+  content: ""; display: block; height: 100%; margin: 0 auto; position: relative;
+  width: 800px; /* this should equal the width of your page */
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.25) 62px,
+    transparent 62px); /* column starts at 0 and goes to determined column width */
+  background-size: 82px; /* this should equal 1 column + 1 gutter */
+}
+
 .clearfix:before, .clearfix:after { content:""; display:table; }
 .clearfix:after { clear:both; }
 .clearfix { *zoom:1; }
